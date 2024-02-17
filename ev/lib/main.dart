@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
         // Naruto Uzumaki Dattebayo
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
+        // No b*tches
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
