@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//comments
 class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);
 
@@ -11,7 +12,8 @@ class _MyRegisterState extends State<MyRegister> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   bool isValidEmail(String email) {
     // Basic email format validation
@@ -128,8 +130,8 @@ class _MyRegisterState extends State<MyRegister> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.greenAccent,
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 15),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
