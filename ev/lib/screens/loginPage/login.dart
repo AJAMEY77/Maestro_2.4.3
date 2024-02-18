@@ -21,7 +21,7 @@ class _MyLoginState extends State<MyLogin> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/login.png'),
                   fit: BoxFit.cover,
@@ -33,8 +33,8 @@ class _MyLoginState extends State<MyLogin> {
               width: double.infinity,
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: Text(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: const Text(
                 'Welcome Back',
                 style: TextStyle(
                     color: Colors.green,
@@ -42,9 +42,9 @@ class _MyLoginState extends State<MyLogin> {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 35),
+              padding: const EdgeInsets.symmetric(horizontal: 35),
               child: Column(
                 children: [
                   TextField(
@@ -61,7 +61,7 @@ class _MyLoginState extends State<MyLogin> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextField(
                     controller: _passwordController,
                     onChanged: (value) {
@@ -77,14 +77,14 @@ class _MyLoginState extends State<MyLogin> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.greenAccent,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 30, vertical: 15),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -100,7 +100,7 @@ class _MyLoginState extends State<MyLogin> {
                                 'Please enter valid email and password.');
                           }
                         },
-                        child: Text(
+                        child: const Text(
                           'Sign In',
                           style: TextStyle(
                             color: Colors.white,
@@ -111,7 +111,7 @@ class _MyLoginState extends State<MyLogin> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -119,7 +119,7 @@ class _MyLoginState extends State<MyLogin> {
                         onPressed: () {
                           Navigator.pushNamed(context, 'register');
                         },
-                        child: Text(
+                        child: const Text(
                           'Sign Up',
                           style: TextStyle(
                             decoration: TextDecoration.underline,
@@ -132,7 +132,7 @@ class _MyLoginState extends State<MyLogin> {
                         onPressed: () {
                           Navigator.pushNamed(context, 'forgotpass');
                         },
-                        child: Text(
+                        child: const Text(
                           'Forgot Password',
                           style: TextStyle(
                             decoration: TextDecoration.underline,
@@ -177,7 +177,7 @@ class _MyLoginState extends State<MyLogin> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );

@@ -8,10 +8,10 @@ class MyRegister extends StatefulWidget {
 }
 
 class _MyRegisterState extends State<MyRegister> {
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   bool isValidEmail(String email) {
     // Basic email format validation
@@ -34,10 +34,10 @@ class _MyRegisterState extends State<MyRegister> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: const Text(
                 'Create Account',
                 style: TextStyle(
                     color: Colors.green,
@@ -46,10 +46,10 @@ class _MyRegisterState extends State<MyRegister> {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
+                image: const DecorationImage(
                   image: AssetImage('assets/Register.jpeg'),
                   fit: BoxFit.cover,
                 ),
@@ -58,9 +58,9 @@ class _MyRegisterState extends State<MyRegister> {
               height: MediaQuery.of(context).size.height * 0.3,
               width: double.infinity,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 35),
+              padding: const EdgeInsets.symmetric(horizontal: 35),
               child: Column(
                 children: [
                   TextField(
@@ -77,7 +77,7 @@ class _MyRegisterState extends State<MyRegister> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextField(
                     controller: _emailController,
                     onChanged: (value) {
@@ -92,7 +92,7 @@ class _MyRegisterState extends State<MyRegister> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextField(
                     controller: _passwordController,
                     onChanged: (value) {
@@ -108,7 +108,7 @@ class _MyRegisterState extends State<MyRegister> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextField(
                     controller: _confirmPasswordController,
                     onChanged: (value) {
@@ -124,12 +124,12 @@ class _MyRegisterState extends State<MyRegister> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.greenAccent,
                       padding:
-                          EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                          const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -150,7 +150,7 @@ class _MyRegisterState extends State<MyRegister> {
                         Navigator.pushNamed(context, 'login');
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       'Sign Up',
                       style: TextStyle(
                         color: Colors.white,
@@ -173,14 +173,14 @@ class _MyRegisterState extends State<MyRegister> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Error'),
+          title: const Text('Error'),
           content: Text(message),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );
