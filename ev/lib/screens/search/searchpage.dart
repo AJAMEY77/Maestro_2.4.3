@@ -1,3 +1,4 @@
+import 'package:ev/screens/search/details.dart';
 import 'package:flutter/material.dart';
 import './stations/stationmodel.dart';
 
@@ -10,6 +11,10 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   bool isSelected = false;
+  bool isNearestSelected = false;
+  bool isCheapestSelected = false;
+  bool isFastChargingSelected = false;
+  bool isRatingSelected = false;
   List<StationModel> chargingStations = [
     StationModel(
         "https://images.pexels.com/photos/8827011/pexels-photo-8827011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -178,16 +183,21 @@ class _SearchPageState extends State<SearchPage> {
                 Container(
                   height: 70,
                   width: 100,
-                  color: Colors.green[200],
+                  color: const Color.fromARGB(255, 255, 255, 255),
                   child: FilterChip(
-                    label: Text(" nearest "),
-                    selected: isSelected,
-                    onSelected: (bool value) {
-                      setState(() {
-                        isSelected = !isSelected;
-                      });
-                    },
-                  ),
+                      label: Text(" nearest "),
+                      selected: isNearestSelected,
+                      onSelected: (bool value) {
+                        setState(() {
+                          isNearestSelected = value;
+                          if (value) {
+                            displayList.sort((a, b) =>
+                                a.stationDistance.compareTo(b.stationDistance));
+                          } else {
+                            displayList = List.from(chargingStations);
+                          }
+                        });
+                      }),
                 ),
                 SizedBox(
                   width: 20,
@@ -196,16 +206,21 @@ class _SearchPageState extends State<SearchPage> {
                   //
                   height: 70,
                   width: 100,
-                  color: Colors.green[200],
+                  color: const Color.fromARGB(255, 255, 255, 255),
                   child: FilterChip(
-                    label: Text("cheapest"),
-                    selected: isSelected,
-                    onSelected: (bool value) {
-                      setState(() {
-                        isSelected = !isSelected;
-                      });
-                    },
-                  ),
+                      label: Text("cheapest"),
+                      selected: isCheapestSelected,
+                      onSelected: (bool value) {
+                        setState(() {
+                          isCheapestSelected = value;
+                          if (value) {
+                            displayList
+                                .sort((a, b) => a.rates.compareTo(b.rates));
+                          } else {
+                            displayList = List.from(chargingStations);
+                          }
+                        });
+                      }),
                 ),
                 SizedBox(
                   width: 20,
@@ -213,17 +228,47 @@ class _SearchPageState extends State<SearchPage> {
                 Container(
                   height: 70,
                   width: 100,
-                  color: Colors.green[200],
+                  color: const Color.fromARGB(255, 255, 255, 255),
                   child: FilterChip(
-                    label: Text("fast charging"),
-                    selected: isSelected,
-                    onSelected: (bool value) {
-                      setState(() {
-                        isSelected = !isSelected;
-                      });
-                    },
-                  ),
+                      label: Text("fast charging"),
+                      selected: isFastChargingSelected,
+                      onSelected: (bool value) {
+                        setState(() {
+                          isFastChargingSelected = value;
+                          if (value) {
+                            displayList.sort((a, b) =>
+                                a.stationDistance.compareTo(b.stationDistance));
+                          } else {
+                            displayList = List.from(chargingStations);
+                          }
+                        });
+                      }),
                 ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  height: 70,
+                  width: 100,
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  child: FilterChip(
+                      label: Text("ratings"),
+                      selected: isRatingSelected,
+                      onSelected: (bool value) {
+                        setState(() {
+                          isRatingSelected = value;
+                          if (value) {
+                            displayList
+                                .sort((a, b) => a.rates.compareTo(b.rates));
+                          } else {
+                            displayList = List.from(chargingStations);
+                          }
+                        });
+                      }),
+                ),
+                // SizedBox(
+                //   width: 20,
+                // ),
               ],
             ),
             Expanded(
@@ -253,6 +298,13 @@ class _SearchPageState extends State<SearchPage> {
                                 fontWeight: FontWeight.bold),
                           ),
                           leading: Image.network(displayList[index].imageUrl),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DisplayPage()),
+                            );
+                          },
                         ))))
           ],
         ),
