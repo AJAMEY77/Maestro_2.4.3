@@ -1,4 +1,4 @@
-import 'package:ev/screen/detalils/details_page.dart';
+import 'package:ev/screens/detalils/details_page.dart';
 import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
