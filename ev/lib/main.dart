@@ -14,28 +14,21 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
-        // I am Ashish Ram
-        // I am Aryan
-        // I am Vineet
-        // I am AMEY
-        // Dikh rha kya
+
         // TRY THIS: Try running your application with "flutter run". You'll see
         // the application has a purple toolbar. Then, without quitting the app,
         // try changing the seedColor in the colorScheme below to Colors.green
         // and then invoke "hot reload" (save your changes or press the "hot
         // reload" button in a Flutter-supported IDE, or press "r" if you used
         // the command line to start the app).
-        // F****ck
+
         // Notice that the counter didn't reset back to zero; the application
         // state is not lost during the reload. To reset the state, use hot
         // restart instead.
         // Goku solos
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        // No b*tches
-        // hello friends
-        // hello friends
-        // hello friends
+
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
