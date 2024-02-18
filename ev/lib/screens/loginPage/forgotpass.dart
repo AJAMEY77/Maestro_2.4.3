@@ -8,10 +8,10 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _otpController = TextEditingController();
-  TextEditingController _newPasswordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _otpController = TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   bool _showOtpField = false;
 
@@ -31,7 +31,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Forgot Password'),
+        title: const Text('Forgot Password'),
         backgroundColor: Colors.greenAccent,
       ),
       body: Padding(
@@ -47,7 +47,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 filled: true,
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
                 // Check for valid email before sending OTP
@@ -60,19 +60,19 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 } else {
                   // Show error message for invalid email
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Please enter a valid email.'),
                     ),
                   );
                 }
               },
-              child: Text('Send OTP'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.greenAccent,
               ),
+              child: const Text('Send OTP'),
             ),
             if (_showOtpField) ...[
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextField(
                 controller: _otpController,
                 decoration: InputDecoration(
@@ -81,7 +81,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   filled: true,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextField(
                 controller: _newPasswordController,
                 obscureText: true,
@@ -91,7 +91,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   filled: true,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextField(
                 controller: _confirmPasswordController,
                 obscureText: true,
@@ -101,7 +101,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   filled: true,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
                   // Validate new password and confirm password before processing
@@ -109,14 +109,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       _confirmPasswordController.text) {
                     // Show error message if passwords do not match
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content: Text('Passwords do not match.'),
                       ),
                     );
                   } else if (!isValidPassword(_newPasswordController.text)) {
                     // Show error message for invalid password
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content:
                             Text('Password should be at least 8 characters.'),
                       ),
@@ -124,16 +124,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   } else {
                     // Add logic here to handle successful password reset
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content: Text('Password reset successful!'),
                       ),
                     );
                   }
                 },
-                child: Text('Submit OTP'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.greenAccent,
                 ),
+                child: const Text('Submit OTP'),
               ),
             ],
           ],
@@ -145,7 +145,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: ForgotPassword(),
     ),
   );
