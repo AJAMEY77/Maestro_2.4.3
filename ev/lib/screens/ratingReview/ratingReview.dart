@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+//comments
 class Review {
   final double rating;
   final String review;
@@ -12,7 +13,8 @@ class RatingPage extends StatefulWidget {
   final List<Review> reviews;
   final Function(List<Review>) onReviewSubmitted;
 
-  const RatingPage({super.key, required this.reviews, required this.onReviewSubmitted});
+  const RatingPage(
+      {super.key, required this.reviews, required this.onReviewSubmitted});
 
   @override
   _RatingPageState createState() => _RatingPageState();

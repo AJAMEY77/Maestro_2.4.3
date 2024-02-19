@@ -11,7 +11,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _otpController = TextEditingController();
   final TextEditingController _newPasswordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   bool _showOtpField = false;
 
@@ -27,6 +28,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     return password.length > 8;
   }
 
+//comments
   @override
   Widget build(BuildContext context) {
     return Scaffold(

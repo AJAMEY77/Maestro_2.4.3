@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_map/flutter_map.dart';
-// import 'package:flutter_map_tomtom/flutter_map_tomtom.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -22,6 +21,15 @@ class _HomePageState extends State<HomePage> {
 
   double _mapPanSensitivity = 1.0; // Sensitivity factor for map panning
 
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    // Handle navigation or other actions here based on the index
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -35,12 +43,19 @@ class _HomePageState extends State<HomePage> {
       drawer: NavDrawer(),
       backgroundColor: Colors.green[700],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.green, // Set background color to green
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home", ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
           BottomNavigationBarItem(
               icon: Icon(Icons.notifications), label: "Notifications"),
         ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.white,
+        onTap: _onItemTapped,
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -91,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Some Text !!",
+                          "EV Sarthi",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 22,
@@ -149,7 +164,7 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             title: Text('Item 1'),
             onTap: () {
-              Navigator.pop(context);
+              HomePage();
             },
           ),
           ListTile(
