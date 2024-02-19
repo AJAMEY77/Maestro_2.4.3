@@ -95,6 +95,7 @@ class _MyLoginState extends State<MyLogin> {
                           if (isValidEmail(_emailController.text) &&
                               isValidPassword(_passwordController.text)) {
                             // Valid email and password, handle sign-in
+                            Navigator.pushNamed(context, 'homePage');
                           } else {
                             // Invalid email or password, show pop-up
                             showAlertDialog(context, 'Invalid credentials',
