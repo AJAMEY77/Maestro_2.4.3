@@ -1,9 +1,12 @@
 import 'dart:convert';
 
+import 'dart:convert';
+
 import 'package:ev/screens/detalils/details_page.dart';
 import 'package:ev/screens/search/details.dart';
 import 'package:flutter/material.dart';
 import './stations/stationmodel.dart';
+import 'package:http/http.dart' as http;
 import 'package:http/http.dart' as http;
 // import 'package:xml/xml.dart' as xml;
 
