@@ -1,7 +1,11 @@
+// ignore: file_names
 import 'dart:async';
 
+import 'package:ev/screens/search/searchpage.dart';
+import 'package:ev/screens/status/status.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:flutter_map_tomtom/flutter_map_tomtom.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,29 +15,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final Completer<GoogleMapController> _controller = Completer();
-
   static const CameraPosition _initialPosition = CameraPosition(
-    target: LatLng(18.651759, 73.761452),
+    target: LatLng(18.651891445649838, 73.76143058771008),
     zoom: 14,
   );
+  final Completer<GoogleMapController> _controller = Completer();
 
-  final double _mapPanSensitivity = 1.0; // Sensitivity factor for map panning
-
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    // Handle navigation or other actions here based on the index
-  }
+  // final double _mapPanSensitivity = 1.0; // Sensitivity factor for map panning
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green[700],
         title: const Text(
           'Home',
           style: TextStyle(color: Colors.white),
@@ -42,19 +37,38 @@ class _HomePageState extends State<HomePage> {
       drawer: const NavDrawer(),
       backgroundColor: Colors.green[700],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.green, // Set background color to green
+        backgroundColor: Colors.green[700], // Set the background color to green
+        selectedItemColor: Colors.white, // Set the selected item color
+        unselectedItemColor:
+            Colors.white.withOpacity(0.5), // Set the unselected item color
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), label: "Notifications"),
+              icon: Icon(Icons.add_chart_outlined), label: "Status"),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
-        onTap: _onItemTapped,
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              // Handle Home item tap
+              // Example: navigate to Home page
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
+              break;
+            case 1:
+              // Handle Search item tap
+              // Example: navigate to Search page
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const SearchPage()));
+              break;
+            case 2:
+              // Handle Notifications item tap
+              // Example: navigate to Notifications page
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const StatusPage()));
+              break;
+          }
+        },
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -76,23 +90,30 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.green[400],
                           borderRadius: BorderRadius.circular(12)),
                       padding: const EdgeInsets.all(12),
-                      child: const Row(
+                      child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.search,
                             color: Colors.white,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 12,
                           ),
                           Expanded(
                             child: TextField(
-                              style: TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
-                                hintText: 'Search...',
+                              style: const TextStyle(color: Colors.white),
+                              decoration: const InputDecoration(
+                                hintText: 'Search here ...',
                                 hintStyle: TextStyle(color: Colors.white),
                                 border: InputBorder.none,
                               ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const SearchPage()),
+                                );
+                              },
                             ),
                           ),
                         ],
@@ -103,20 +124,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "EV Sarthi",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Icon(
-                          Icons.more_horiz,
-                          color: Colors.white,
-                        )
-                      ],
+                      children: [],
                     ),
                     const SizedBox(
                       height: 25,
@@ -129,9 +137,12 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 color: Colors.white,
-                // child: ,
-
-                height: screenHeight * 0.7, // Adjusted height
+                height: screenHeight * 0.7,
+                child: Image.asset(
+                  'assets/map.png', // Replace 'your_image.png' with the path to your image asset
+                  // fit: BoxFit
+                  //     .cover, // Adjust the fit of the image to cover the container
+                ),
               ),
             ],
           ),
@@ -165,7 +176,7 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             title: const Text('Item 1'),
             onTap: () {
-              const HomePage();
+              Navigator.pop(context);
             },
           ),
           ListTile(

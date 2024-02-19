@@ -78,6 +78,7 @@ class _BookingPageState extends State<BookingPage> {
             ElevatedButton(
               onPressed: () {
                 _bookChargingStation();
+                Navigator.pushNamed(context, 'upi');
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF71DA74), // Green color

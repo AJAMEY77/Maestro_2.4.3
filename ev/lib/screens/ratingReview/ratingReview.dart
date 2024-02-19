@@ -1,3 +1,4 @@
+import 'package:ev/screens/ratingReview/reviewsList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -76,7 +77,12 @@ class _RatingPageState extends State<RatingPage> {
                 });
                 widget.onReviewSubmitted(widget.reviews);
                 _reviewController.clear();
-                Navigator.pushNamed(context, 'reviewsList');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          ReviewPage(reviews: widget.reviews)),
+                );
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(

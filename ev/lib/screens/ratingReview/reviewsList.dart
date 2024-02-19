@@ -1,11 +1,24 @@
-import 'package:ev/screens/ratingReview/ratingReview.dart';
 import 'package:flutter/material.dart';
 
-//comments
-class ReviewPage extends StatelessWidget {
+import 'package:ev/screens/ratingReview/ratingReview.dart';
+
+class ReviewPage extends StatefulWidget {
   final List<Review> reviews;
 
-  const ReviewPage({super.key, required this.reviews});
+  const ReviewPage({Key? key, required this.reviews}) : super(key: key);
+
+  @override
+  _ReviewPageState createState() => _ReviewPageState();
+}
+
+class _ReviewPageState extends State<ReviewPage> {
+  late List<Review> reviews;
+
+  @override
+  void initState() {
+    super.initState();
+    reviews = widget.reviews;
+  }
 
   @override
   Widget build(BuildContext context) {
