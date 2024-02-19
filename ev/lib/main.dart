@@ -4,6 +4,7 @@ import 'package:ev/screens/homePage/homePage.dart';
 import 'package:ev/screens/loginPage/forgotpass.dart';
 import 'package:ev/screens/loginPage/login.dart';
 import 'package:ev/screens/loginPage/register.dart';
+import 'package:firebase_core/firebase_core.dart';
 //import 'package:ev/screens/ratingReview/ratingReview.dart';
 //import 'package:ev/screens/ratingReview/reviewsList.dart';
 import 'package:flutter/material.dart';

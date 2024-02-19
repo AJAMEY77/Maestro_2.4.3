@@ -1,4 +1,7 @@
+import 'package:ev/service/database.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:random_string/random_string.dart';
 
 //comments
 class MyRegister extends StatefulWidget {
@@ -136,7 +139,8 @@ class _MyRegisterState extends State<MyRegister> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
+                      String Id = randomAlphaNumeric(10);
                       // Validate email and password before processing registration
                       if (!isValidEmail(_emailController.text)) {
                         _showErrorDialog('Please enter a valid email.');
@@ -148,6 +152,26 @@ class _MyRegisterState extends State<MyRegister> {
                         _showErrorDialog('Passwords do not match.');
                       } else {
                         // Process registration
+                        Map<String, dynamic> employeeInfoMap = {
+                          "Id": Id,
+                          "Name": _nameController.text,
+                          "Email": _emailController.text,
+                          "password": _passwordController.text,
+                          "cpassword": _confirmPasswordController.text,
+                        };
+                        await DatabaseMethods()
+                            .addEmployeeDetails(employeeInfoMap, Id)
+                            .then((value) {
+                          Fluttertoast.showToast(
+                              msg: "Data Added",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        });
+
                         _performRegistration();
                         Navigator.pushNamed(context, 'login');
                       }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "490897255127",
+    "project_id": "maestro-8ca31",
+    "storage_bucket": "maestro-8ca31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490897255127:android:3506cee1c5ada2cf469e92",
+        "android_client_info": {
+          "package_name": "com.example.ev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3pM7utUq6Mr4Q5no-0CaBR2Byt5PeK-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
