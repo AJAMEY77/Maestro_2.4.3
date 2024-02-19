@@ -19,7 +19,11 @@ class StationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Charging Station"),
+<<<<<<< master
         backgroundColor: const Color.fromARGB(255, 14, 166, 75),
+=======
+        backgroundColor: Color.fromARGB(255, 14, 166, 75),
+>>>>>>> master
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +53,11 @@ class StationPage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
+<<<<<<< master
                 MaterialPageRoute(builder: (context) => const BookingPage()),
+=======
+                MaterialPageRoute(builder: (context) => BookingPage()),
+>>>>>>> master
               );
             },
             style: ButtonStyle(
@@ -92,3 +100,80 @@ class StationPage extends StatelessWidget {
     );
   }
 }
+<<<<<<< master
+=======
+
+void main() {
+  runApp(
+    const MaterialApp(
+      home: StationPage(),
+    ),
+  );
+}
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text("Charging Station"),
+//         backgroundColor: const Color.fromARGB(255, 14, 166, 75),
+//       ),
+//       body: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         crossAxisAlignment: CrossAxisAlignment.center,
+//         children: [
+//           Center(
+//             child: Image.network(
+//               'https://media.istockphoto.com/id/1221447606/photo/charging-station.jpg?s=612x612&w=0&k=20&c=5Z1MVyuZIFR3f0ca51a3n3ZvFUt7P1rAAU8dP_TtVBM=',
+//               fit: BoxFit.cover,
+//               height: 300,
+//               width: 450,
+//             ),
+//           ),
+//           const SizedBox(height: 20),
+//           Center(
+//             child: Text(
+//               "Name: $name\nDistance: $distance\nRate: $rate\n",
+//               textAlign: TextAlign.center,
+//               style: const TextStyle(
+//                 fontSize: 30,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//           ),
+//           const SizedBox(height: 20),
+//           ElevatedButton(
+//             onPressed: () {
+//               // Implement action for booking
+//             },
+//             style: ButtonStyle(
+//               backgroundColor: MaterialStateProperty.all<Color>(
+//                 const Color.fromARGB(255, 21, 80, 23),
+//               ),
+//             ),
+//             child: const Text(
+//               'Book the Station',
+//               style: TextStyle(color: Colors.white),
+//             ),
+//           ),
+//           const SizedBox(height: 20),
+//           ElevatedButton(
+//             onPressed: () {
+//               // Implement action for rating
+//             },
+//             style: ButtonStyle(
+//               backgroundColor: MaterialStateProperty.all<Color>(
+//                 const Color.fromARGB(255, 21, 80, 23),
+//               ),
+//             ),
+//             child: const Text(
+//               'Rating',
+//               style: TextStyle(color: Colors.white),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+>>>>>>> master

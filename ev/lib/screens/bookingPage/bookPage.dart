@@ -78,11 +78,17 @@ class _BookingPageState extends State<BookingPage> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+<<<<<<< master
                 _bookChargingStation();
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => PhonePePayment()),
                 );
+=======
+                // _bookChargingStation();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PhonePePayment()));
+>>>>>>> master
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF71DA74), // Green color

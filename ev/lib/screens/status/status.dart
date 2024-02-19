@@ -2,8 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class StatusPage extends StatefulWidget {
+<<<<<<< master
   const StatusPage({super.key});
 
+=======
+>>>>>>> master
   @override
   _StatusPageState createState() => _StatusPageState();
 }
@@ -11,16 +14,27 @@ class StatusPage extends StatefulWidget {
 class _StatusPageState extends State<StatusPage> {
   double chargingPercentage = 70.0; // Replace with actual charging percentage
   Duration remainingTime =
+<<<<<<< master
       const Duration(minutes: 30); // Replace with actual remaining time
+=======
+      Duration(minutes: 30); // Replace with actual remaining time
+>>>>>>> master
 
   @override
   void initState() {
     super.initState();
     // Replace this with actual charging timer logic
+<<<<<<< master
     Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (remainingTime.inSeconds > 0) {
           remainingTime -= const Duration(seconds: 1);
+=======
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if (remainingTime.inSeconds > 0) {
+          remainingTime -= Duration(seconds: 1);
+>>>>>>> master
         } else {
           timer.cancel();
         }
@@ -32,7 +46,11 @@ class _StatusPageState extends State<StatusPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+<<<<<<< master
         title: const Text('Charging Status'),
+=======
+        title: Text('Charging Status'),
+>>>>>>> master
       ),
       body: Center(
         child: Column(
@@ -43,6 +61,7 @@ class _StatusPageState extends State<StatusPage> {
               size: 100,
               color: determineBatteryColor(chargingPercentage),
             ),
+<<<<<<< master
             const SizedBox(height: 20),
             Text(
               'Charging Percentage: ${chargingPercentage.toStringAsFixed(2)}%',
@@ -52,6 +71,17 @@ class _StatusPageState extends State<StatusPage> {
             Text(
               'Time Remaining: ${remainingTime.inMinutes}:${(remainingTime.inSeconds % 60).toString().padLeft(2, '0')}',
               style: const TextStyle(fontSize: 20),
+=======
+            SizedBox(height: 20),
+            Text(
+              'Charging Percentage: ${chargingPercentage.toStringAsFixed(2)}%',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Time Remaining: ${remainingTime.inMinutes}:${(remainingTime.inSeconds % 60).toString().padLeft(2, '0')}',
+              style: TextStyle(fontSize: 20),
+>>>>>>> master
             ),
           ],
         ),

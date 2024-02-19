@@ -1,8 +1,17 @@
 import 'dart:async';
+<<<<<<< master
+=======
+
+>>>>>>> master
 import 'package:ev/screens/search/searchpage.dart';
 import 'package:ev/screens/status/status.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+<<<<<<< master
+=======
+import 'package:flutter_map/flutter_map.dart';
+// import 'package:flutter_map_tomtom/flutter_map_tomtom.dart';
+>>>>>>> master
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,7 +25,12 @@ class _HomePageState extends State<HomePage> {
     target: LatLng(18.651891445649838, 73.76143058771008),
     zoom: 14,
   );
+<<<<<<< master
   final Completer<GoogleMapController> _controller = Completer();
+=======
+
+  double _mapPanSensitivity = 1.0; // Sensitivity factor for map panning
+>>>>>>> master
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +38,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green[700],
+<<<<<<< master
         title: const Text(
+=======
+        title: Text(
+>>>>>>> master
           'Home',
           style: TextStyle(color: Colors.white),
         ),
@@ -32,9 +50,16 @@ class _HomePageState extends State<HomePage> {
       drawer: const NavDrawer(),
       backgroundColor: Colors.green[700],
       bottomNavigationBar: BottomNavigationBar(
+<<<<<<< master
         backgroundColor: Colors.green[700],
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white.withOpacity(0.5),
+=======
+        backgroundColor: Colors.green[700], // Set the background color to green
+        selectedItemColor: Colors.white, // Set the selected item color
+        unselectedItemColor:
+            Colors.white.withOpacity(0.5), // Set the unselected item color
+>>>>>>> master
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
@@ -44,6 +69,7 @@ class _HomePageState extends State<HomePage> {
         onTap: (int index) {
           switch (index) {
             case 0:
+<<<<<<< master
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const HomePage()),
@@ -60,6 +86,24 @@ class _HomePageState extends State<HomePage> {
                 context,
                 MaterialPageRoute(builder: (context) => const StatusPage()),
               );
+=======
+              // Handle Home item tap
+              // Example: navigate to Home page
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+              break;
+            case 1:
+              // Handle Search item tap
+              // Example: navigate to Search page
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SearchPage()));
+              break;
+            case 2:
+              // Handle Notifications item tap
+              // Example: navigate to Notifications page
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => StatusPage()));
+>>>>>>> master
               break;
           }
         },
@@ -99,6 +143,7 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
+<<<<<<< master
                                     builder: (context) => const SearchPage(),
                                   ),
                                 );
@@ -109,6 +154,26 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(height: 25),
+=======
+                                      builder: (context) => SearchPage()),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [],
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+>>>>>>> master
                   ],
                 ),
               ),
@@ -116,8 +181,14 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
                 height: screenHeight * 0.7,
                 child: Image.asset(
+<<<<<<< master
                   'assets/map.jpg',
                   fit: BoxFit.cover,
+=======
+                  'assets/map.png', // Replace 'your_image.png' with the path to your image asset
+                  fit: BoxFit
+                      .cover, // Adjust the fit of the image to cover the container
+>>>>>>> master
                 ),
               ),
             ],
