@@ -69,7 +69,7 @@ class StationPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => RatingPage(
-                          reviews: const [],
+                          reviews: [],
                           onReviewSubmitted: (Review) {
                             var reviews;
                             print('Updated Rveviews List:  $reviews');

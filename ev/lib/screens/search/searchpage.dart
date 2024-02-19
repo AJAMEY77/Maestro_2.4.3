@@ -1,12 +1,8 @@
 import 'dart:convert';
 
-import 'dart:convert';
-
 import 'package:ev/screens/detalils/details_page.dart';
-import 'package:ev/screens/search/details.dart';
 import 'package:flutter/material.dart';
 import './stations/stationmodel.dart';
-import 'package:http/http.dart' as http;
 import 'package:http/http.dart' as http;
 // import 'package:xml/xml.dart' as xml;
 
@@ -179,8 +175,8 @@ class _SearchPageState extends State<SearchPage> {
                 updateList(value);
                 fetchChargingStationData("m96ZCU3q8KxAA4DeTJwUyLzFgGkk2ri1");
               },
-              style: TextStyle(fontSize: 20),
-              decoration: InputDecoration(
+              style: const TextStyle(fontSize: 20),
+              decoration: const InputDecoration(
                   filled: true,
                   fillColor: Color.fromRGBO(59, 96, 70, 0),
                   border: OutlineInputBorder(),
@@ -194,7 +190,7 @@ class _SearchPageState extends State<SearchPage> {
               children: [
                 Flexible(
                   child: FilterChip(
-                    label: Text("nearest"),
+                    label: const Text("nearest"),
                     selected: isNearestSelected,
                     onSelected: (bool value) {
                       setState(() {
@@ -211,7 +207,7 @@ class _SearchPageState extends State<SearchPage> {
                 ),
                 Flexible(
                   child: FilterChip(
-                    label: Text("cheapest"),
+                    label: const Text("cheapest"),
                     selected: isCheapestSelected,
                     onSelected: (bool value) {
                       setState(() {
@@ -228,7 +224,7 @@ class _SearchPageState extends State<SearchPage> {
                 ),
                 Flexible(
                   child: FilterChip(
-                    label: Text("fast"),
+                    label: const Text("fast"),
                     selected: isFastChargingSelected,
                     onSelected: (bool value) {
                       setState(() {
@@ -245,7 +241,7 @@ class _SearchPageState extends State<SearchPage> {
                 ),
                 Flexible(
                   child: FilterChip(
-                    label: Text("ratings"),
+                    label: const Text("ratings"),
                     selected: isRatingSelected,
                     onSelected: (bool value) {
                       setState(() {
@@ -293,7 +289,7 @@ class _SearchPageState extends State<SearchPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => StationPage()),
+                                  builder: (context) => const StationPage()),
                             );
                           },
                         ))))
@@ -305,13 +301,13 @@ class _SearchPageState extends State<SearchPage> {
 }
 
 Future<Map<String, dynamic>> fetchChargingStationData(String apiKey) async {
-  final String baseURL = 'api.tomtom.com';
-  final String versionNumber = '2';
-  final String ext = 'json';
-  final String chargingAvailabilityId = '00112233-4455-6677-8899-aabbccddeeff';
-  final String connectorSet = 'IEC62196Type2CableAttached';
-  final String minPowerKW = '22.2';
-  final String maxPowerKW = '43.2';
+  const String baseURL = 'api.tomtom.com';
+  const String versionNumber = '2';
+  const String ext = 'json';
+  const String chargingAvailabilityId = '00112233-4455-6677-8899-aabbccddeeff';
+  const String connectorSet = 'IEC62196Type2CableAttached';
+  const String minPowerKW = '22.2';
+  const String maxPowerKW = '43.2';
 
   // Constructing the URL for the API request
   final url = Uri.https(

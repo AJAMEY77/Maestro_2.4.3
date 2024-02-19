@@ -1,3 +1,4 @@
+import 'package:ev/screens/loginPage/login.dart';
 import 'package:flutter/material.dart';
 
 //comments
@@ -149,7 +150,10 @@ class _MyRegisterState extends State<MyRegister> {
                       } else {
                         // Process registration
                         _performRegistration();
-                        Navigator.pushNamed(context, 'login');
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyLogin()),
+                        );
                       }
                     },
                     child: const Text(

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:ev/screens/ratingReview/ratingReview.dart';
 
 class ReviewPage extends StatefulWidget {
-  final List<Review> reviews;
+  List<Review> reviews;
 
-  const ReviewPage({Key? key, required this.reviews}) : super(key: key);
+  ReviewPage({Key? key, required this.reviews}) : super(key: key);
 
   @override
   _ReviewPageState createState() => _ReviewPageState();

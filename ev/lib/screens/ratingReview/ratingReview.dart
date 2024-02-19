@@ -11,10 +11,10 @@ class Review {
 }
 
 class RatingPage extends StatefulWidget {
-  final List<Review> reviews;
-  final Function(List<Review>) onReviewSubmitted;
+  List<Review> reviews;
+  Function(List<Review>) onReviewSubmitted;
 
-  const RatingPage(
+  RatingPage(
       {super.key, required this.reviews, required this.onReviewSubmitted});
 
   @override
