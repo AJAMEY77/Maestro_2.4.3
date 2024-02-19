@@ -3,9 +3,6 @@
         android:label="ev"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-
-        <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyAZOSAqKdSaLE6hNGQ4svtCZYC1Q31jsis"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -32,5 +29,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+            <meta-data android:name="com.phonepe.android.sdk.isUAT" android:value="true"/> 
+            <meta-data android:name="com.phonepe.android.sdk.isSimulator" android:value="true"/>
+            <meta-data android:name="com.phonepe.android.sdk.MerchantId" android:value="PGTESTPAYUAT"/> 
+            <!-- <meta-data android:name="com.phonepe.android.sdk.AppId" android:value="appId"/> -->
+
     </application>
 </manifest>

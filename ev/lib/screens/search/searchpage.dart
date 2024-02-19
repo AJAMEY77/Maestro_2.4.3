@@ -1,10 +1,15 @@
 import 'dart:convert';
 
+import 'dart:convert';
+
+import 'package:ev/screens/detalils/details_page.dart';
 import 'package:ev/screens/search/details.dart';
 import 'package:flutter/material.dart';
 import './stations/stationmodel.dart';
 import 'package:http/http.dart' as http;
 import 'package:xml/xml.dart' as xml;
+import 'package:http/http.dart' as http;
+// import 'package:xml/xml.dart' as xml;
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -309,7 +314,7 @@ class _SearchPageState extends State<SearchPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DisplayPage()),
+                                  builder: (context) => StationPage()),
                             );
                           },
                         ))))

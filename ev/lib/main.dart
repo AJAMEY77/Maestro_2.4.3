@@ -1,6 +1,8 @@
-import 'package:ev/screens/search/searchpage.dart';
-import 'package:flutter/material.dart';
 import 'package:ev/screens/homePage/homePage.dart';
+import 'package:ev/screens/loginPage/forgotpass.dart';
+import 'package:ev/screens/loginPage/login.dart';
+import 'package:ev/screens/loginPage/register.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'EV Sarthi',
+        title: 'Flutter Demo',
         theme: ThemeData(
             // This is the theme of your application.
 

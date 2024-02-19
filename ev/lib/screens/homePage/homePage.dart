@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ev/screens/search/searchpage.dart';
+import 'package:ev/screens/status/status.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -28,6 +29,7 @@ class _HomePageState extends State<HomePage> {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green[700],
         title: Text(
           'Home',
           style: TextStyle(color: Colors.white),
@@ -36,11 +38,15 @@ class _HomePageState extends State<HomePage> {
       drawer: NavDrawer(),
       backgroundColor: Colors.green[700],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.green[700], // Set the background color to green
+        selectedItemColor: Colors.white, // Set the selected item color
+        unselectedItemColor:
+            Colors.white.withOpacity(0.5), // Set the unselected item color
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), label: "Notifications"),
+              icon: Icon(Icons.add_chart_outlined), label: "Status"),
         ],
         onTap: (int index) {
           switch (index) {
@@ -59,7 +65,8 @@ class _HomePageState extends State<HomePage> {
             case 2:
               // Handle Notifications item tap
               // Example: navigate to Notifications page
-              // Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationsScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => StatusPage()));
               break;
           }
         },
@@ -97,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                             child: TextField(
                               style: const TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
-                                hintText: 'Search...',
+                                hintText: 'Search here ...',
                                 hintStyle: TextStyle(color: Colors.white),
                                 border: InputBorder.none,
                               ),
@@ -118,20 +125,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Some Text !!",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Icon(
-                          Icons.more_horiz,
-                          color: Colors.white,
-                        )
-                      ],
+                      children: [],
                     ),
                     const SizedBox(
                       height: 25,
@@ -144,9 +138,11 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 color: Colors.white,
-                // child: ,
-
-                height: screenHeight * 0.7, // Adjusted height
+                height: screenHeight * 0.7,
+                child: Image.asset(
+                  'assets/map.png', // Replace 'your_image.png' with the path to your image asset
+                  fit: BoxFit.cover, // Adjust the fit of the image to cover the container
+                ),
               ),
             ],
           ),
