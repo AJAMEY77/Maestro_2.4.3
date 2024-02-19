@@ -1,8 +1,11 @@
 import 'dart:async';
 
+import 'package:ev/screens/search/searchpage.dart';
+import 'package:ev/screens/status/status.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_map/flutter_map.dart';
+// import 'package:flutter_map_tomtom/flutter_map_tomtom.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,20 +24,12 @@ class _HomePageState extends State<HomePage> {
 
   double _mapPanSensitivity = 1.0; // Sensitivity factor for map panning
 
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    // Handle navigation or other actions here based on the index
-  }
-
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green[700],
         title: Text(
           'Home',
           style: TextStyle(color: Colors.white),
@@ -43,19 +38,38 @@ class _HomePageState extends State<HomePage> {
       drawer: NavDrawer(),
       backgroundColor: Colors.green[700],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.green, // Set background color to green
+        backgroundColor: Colors.green[700], // Set the background color to green
+        selectedItemColor: Colors.white, // Set the selected item color
+        unselectedItemColor:
+            Colors.white.withOpacity(0.5), // Set the unselected item color
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), label: "Notifications"),
+              icon: Icon(Icons.add_chart_outlined), label: "Status"),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
-        onTap: _onItemTapped,
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              // Handle Home item tap
+              // Example: navigate to Home page
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+              break;
+            case 1:
+              // Handle Search item tap
+              // Example: navigate to Search page
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SearchPage()));
+              break;
+            case 2:
+              // Handle Notifications item tap
+              // Example: navigate to Notifications page
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => StatusPage()));
+              break;
+          }
+        },
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -89,11 +103,18 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             child: TextField(
                               style: const TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
-                                hintText: 'Search...',
-                                hintStyle: const TextStyle(color: Colors.white),
+                              decoration: const InputDecoration(
+                                hintText: 'Search here ...',
+                                hintStyle: TextStyle(color: Colors.white),
                                 border: InputBorder.none,
                               ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SearchPage()),
+                                );
+                              },
                             ),
                           ),
                         ],
@@ -104,20 +125,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "EV Sarthi",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Icon(
-                          Icons.more_horiz,
-                          color: Colors.white,
-                        )
-                      ],
+                      children: [],
                     ),
                     const SizedBox(
                       height: 25,
@@ -130,9 +138,11 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 color: Colors.white,
-                // child: ,
-
-                height: screenHeight * 0.7, // Adjusted height
+                height: screenHeight * 0.7,
+                child: Image.asset(
+                  'assets/map.png', // Replace 'your_image.png' with the path to your image asset
+                  fit: BoxFit.cover, // Adjust the fit of the image to cover the container
+                ),
               ),
             ],
           ),
@@ -164,7 +174,7 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             title: Text('Item 1'),
             onTap: () {
-              HomePage();
+              Navigator.pop(context);
             },
           ),
           ListTile(

@@ -1,15 +1,15 @@
-import 'package:flutter/cupertino.dart';
+import 'package:ev/screens/bookingPage/bookPage.dart';
+import 'package:ev/screens/ratingReview/ratingReview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class StationPage extends StatelessWidget {
-  const StationPage({Key? key});
+  const StationPage({super.key, Key? key_});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Charging Station"),
+        title: const Text("Charging Station"),
         backgroundColor: Colors.greenAccent,
       ),
       body: Column(
@@ -25,7 +25,7 @@ class StationPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          Center(
+          const Center(
             child: Text(
               "Name: Pccoe electric station\nDistance: 20KM\nRate: 450 Rs/min\nAvg price: 350 Rs",
               textAlign: TextAlign.center,
@@ -38,33 +38,44 @@ class StationPage extends StatelessWidget {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              // Add your button onPressed logic here
-              //Navigator.of(context).push(MaterialPageRoute(builder: context=>))
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BookingPage()),
+              );
             },
-            child: Text(
-              'Book the Station',
-              style: TextStyle(color: Colors.white),
-            ),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
-                Color.fromARGB(255, 21, 80, 23),
+                const Color.fromARGB(255, 21, 80, 23),
               ),
+            ),
+            child: const Text(
+              'Book the Station',
+              style: TextStyle(color: Colors.white),
             ),
           ),
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              // Add onPressed logic for this button
-              //Navigator.of(context).push(MaterialPageRoute(builder: context=>))
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => RatingPage(
+                          reviews: [],
+                          onReviewSubmitted: (Review) {
+                            var reviews;
+                            print('Updated Rveviews List:  $reviews');
+                          },
+                        )),
+              );
             },
-            child: Text(
-              'Rating',
-              style: TextStyle(color: Colors.white),
-            ),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
-                Color.fromARGB(255, 21, 80, 23),
+                const Color.fromARGB(255, 21, 80, 23),
               ),
+            ),
+            child: const Text(
+              'Rating',
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ],
@@ -75,7 +86,7 @@ class StationPage extends StatelessWidget {
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: StationPage(),
     ),
   );

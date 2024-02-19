@@ -1,3 +1,4 @@
+import 'package:ev/screens/paymentPage/upi.dart';
 import 'package:flutter/material.dart';
 
 class BookingPage extends StatefulWidget {
@@ -77,7 +78,9 @@ class _BookingPageState extends State<BookingPage> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                _bookChargingStation();
+                // _bookChargingStation();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PhonePePayment()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF71DA74), // Green color
