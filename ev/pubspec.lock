@@ -66,7 +66,7 @@ packages:
     source: hosted
     version: "1.3.1"
   flutter:
-    dependency: "direct main"
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -78,6 +78,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+/* <<<<<<< master
+=======
   flutter_map:
     dependency: "direct main"
     description:
@@ -94,6 +96,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.17"
+>>>>>>> master */
   flutter_rating_bar:
     dependency: "direct main"
     description:
@@ -446,5 +449,10 @@ packages:
     source: hosted
     version: "2.0.0"
 sdks:
+/* <<<<<<< master
+  dart: ">=3.2.6 <4.0.0"
+  flutter: ">=2.5.0"
+=======
   dart: ">=3.3.0 <4.0.0"
   flutter: ">=3.16.6"
+>>>>>>> master */
