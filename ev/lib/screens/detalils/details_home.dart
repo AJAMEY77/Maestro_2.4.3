@@ -13,7 +13,7 @@ class MyWidget extends StatelessWidget {
       body: ListView.builder(
           itemCount: _stations.length,
           itemBuilder: (context, index) {
-            return StationPage();
+            return const StationPage();
           }),
     );
   }

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:flutter_map/flutter_map.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     zoom: 14,
   );
 
-  double _mapPanSensitivity = 1.0; // Sensitivity factor for map panning
+  final double _mapPanSensitivity = 1.0; // Sensitivity factor for map panning
 
   int _selectedIndex = 0;
 
@@ -35,12 +34,12 @@ class _HomePageState extends State<HomePage> {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Home',
           style: TextStyle(color: Colors.white),
         ),
       ),
-      drawer: NavDrawer(),
+      drawer: const NavDrawer(),
       backgroundColor: Colors.green[700],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.green, // Set background color to green
@@ -65,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [],
                     ),
@@ -77,21 +76,21 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.green[400],
                           borderRadius: BorderRadius.circular(12)),
                       padding: const EdgeInsets.all(12),
-                      child: Row(
+                      child: const Row(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.search,
                             color: Colors.white,
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 12,
                           ),
                           Expanded(
                             child: TextField(
-                              style: const TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.white),
                               decoration: InputDecoration(
                                 hintText: 'Search...',
-                                hintStyle: const TextStyle(color: Colors.white),
+                                hintStyle: TextStyle(color: Colors.white),
                                 border: InputBorder.none,
                               ),
                             ),
@@ -102,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(
                       height: 25,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -143,13 +142,15 @@ class _HomePageState extends State<HomePage> {
 }
 
 class NavDrawer extends StatelessWidget {
+  const NavDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.green,
             ),
@@ -162,13 +163,13 @@ class NavDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Item 1'),
+            title: const Text('Item 1'),
             onTap: () {
-              HomePage();
+              const HomePage();
             },
           ),
           ListTile(
-            title: Text('Item 2'),
+            title: const Text('Item 2'),
             onTap: () {
               Navigator.pop(context);
             },
@@ -181,7 +182,7 @@ class NavDrawer extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: HomePage(),
   ));
 }
