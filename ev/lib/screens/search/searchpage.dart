@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:ev/screens/search/details.dart';
 import 'package:flutter/material.dart';
 import './stations/stationmodel.dart';
+import 'package:http/http.dart' as http;
+import 'package:xml/xml.dart' as xml;
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -167,7 +171,10 @@ class _SearchPageState extends State<SearchPage> {
             ),
             const SizedBox(height: 20),
             TextField(
-              onChanged: (value) => updateList(value),
+              onChanged: (value) {
+                updateList(value);
+                fetchChargingStationData("m96ZCU3q8KxAA4DeTJwUyLzFgGkk2ri1");
+              },
               style: TextStyle(fontSize: 20),
               decoration: InputDecoration(
                   filled: true,
@@ -310,6 +317,41 @@ class _SearchPageState extends State<SearchPage> {
         ),
       ),
     );
+  }
+}
+
+Future<Map<String, dynamic>> fetchChargingStationData(String apiKey) async {
+  final String baseURL = 'api.tomtom.com';
+  final String versionNumber = '2';
+  final String ext = 'json';
+  final String chargingAvailabilityId = '00112233-4455-6677-8899-aabbccddeeff';
+  final String connectorSet = 'IEC62196Type2CableAttached';
+  final String minPowerKW = '22.2';
+  final String maxPowerKW = '43.2';
+
+  // Constructing the URL for the API request
+  final url = Uri.https(
+    baseURL,
+    '/search/$versionNumber/chargingAvailability.$ext',
+    {
+      'key': apiKey,
+      'chargingAvailability': chargingAvailabilityId,
+      'connectorSet': connectorSet,
+      'minPowerKW': minPowerKW,
+      'maxPowerKW': maxPowerKW,
+    },
+  );
+
+  try {
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      final jsonData = json.decode(response.body);
+      return jsonData;
+    } else {
+      throw Exception('Failed to fetch data: ${response.statusCode}');
+    }
+  } catch (error) {
+    throw Exception('Exception occurred: $error');
   }
 }
 

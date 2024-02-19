@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ev/screens/search/searchpage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -41,6 +42,27 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.notifications), label: "Notifications"),
         ],
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              // Handle Home item tap
+              // Example: navigate to Home page
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+              break;
+            case 1:
+              // Handle Search item tap
+              // Example: navigate to Search page
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SearchPage()));
+              break;
+            case 2:
+              // Handle Notifications item tap
+              // Example: navigate to Notifications page
+              // Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationsScreen()));
+              break;
+          }
+        },
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -74,11 +96,18 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             child: TextField(
                               style: const TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 hintText: 'Search...',
-                                hintStyle: const TextStyle(color: Colors.white),
+                                hintStyle: TextStyle(color: Colors.white),
                                 border: InputBorder.none,
                               ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SearchPage()),
+                                );
+                              },
                             ),
                           ),
                         ],
