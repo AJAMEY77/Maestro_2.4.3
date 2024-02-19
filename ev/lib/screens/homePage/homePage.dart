@@ -141,7 +141,8 @@ class _HomePageState extends State<HomePage> {
                 height: screenHeight * 0.7,
                 child: Image.asset(
                   'assets/map.png', // Replace 'your_image.png' with the path to your image asset
-                  fit: BoxFit.cover, // Adjust the fit of the image to cover the container
+                  fit: BoxFit
+                      .cover, // Adjust the fit of the image to cover the container
                 ),
               ),
             ],

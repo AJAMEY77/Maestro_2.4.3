@@ -7,7 +7,6 @@ import 'package:ev/screens/search/details.dart';
 import 'package:flutter/material.dart';
 import './stations/stationmodel.dart';
 import 'package:http/http.dart' as http;
-import 'package:xml/xml.dart' as xml;
 import 'package:http/http.dart' as http;
 // import 'package:xml/xml.dart' as xml;
 
