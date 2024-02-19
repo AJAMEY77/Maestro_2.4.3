@@ -7,6 +7,19 @@
 
 //   final List _stations = ['station1', 'station2', 'station3'];
 
+<<<<<<< master
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView.builder(
+          itemCount: _stations.length,
+          itemBuilder: (context, index) {
+            return const StationPage();
+          }),
+    );
+  }
+}
+=======
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -18,3 +31,4 @@
 //     );
 //   }
 // }
+>>>>>>> master

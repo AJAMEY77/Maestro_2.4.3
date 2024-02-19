@@ -1,3 +1,4 @@
+import 'package:ev/screens/loginPage/login.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -129,6 +130,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       const SnackBar(
                         content: Text('Password reset successful!'),
                       ),
+                    );
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyLogin()),
                     );
                   }
                 },

@@ -1,4 +1,8 @@
+<<<<<<< master
+import 'package:ev/screens/loginPage/login.dart';
+=======
 import 'package:ev/service/database.dart';
+>>>>>>> master
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:random_string/random_string.dart';
@@ -173,7 +177,10 @@ class _MyRegisterState extends State<MyRegister> {
                         });
 
                         _performRegistration();
-                        Navigator.pushNamed(context, 'login');
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyLogin()),
+                        );
                       }
                     },
                     child: const Text(

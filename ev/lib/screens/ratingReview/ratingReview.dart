@@ -11,10 +11,15 @@ class Review {
 }
 
 class RatingPage extends StatefulWidget {
-  final List<Review> reviews;
-  final Function(List<Review>) onReviewSubmitted;
+  List<Review> reviews;
+  Function(List<Review>) onReviewSubmitted;
 
+<<<<<<< master
+  RatingPage(
+      {super.key, required this.reviews, required this.onReviewSubmitted});
+=======
   const RatingPage({super.key,required this.reviews, required this.onReviewSubmitted});
+>>>>>>> master
 
   @override
   _RatingPageState createState() => _RatingPageState();
@@ -70,6 +75,21 @@ class _RatingPageState extends State<RatingPage> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+<<<<<<< master
+                Review newReview = Review(_userRating, _reviewController.text);
+                setState(() {
+                  widget.reviews.add(newReview);
+                });
+                widget.onReviewSubmitted(widget.reviews);
+                _reviewController.clear();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          ReviewPage(reviews: widget.reviews)),
+                );
+              },
+=======
   Review newReview = Review(_userRating, _reviewController.text);
   setState(() {
     widget.reviews.add(newReview);
@@ -81,6 +101,7 @@ class _RatingPageState extends State<RatingPage> {
     MaterialPageRoute(builder: (context) => ReviewPage(reviews: widget.reviews)),
   );
 },
+>>>>>>> master
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
                   Colors.greenAccent,

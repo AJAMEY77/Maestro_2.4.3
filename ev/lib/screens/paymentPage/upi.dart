@@ -12,7 +12,7 @@ class PhonePePayment extends StatefulWidget {
 }
 
 class _PhonePePaymentState extends State<PhonePePayment> {
-  String environment = "UAT_SIM";
+  String environment = "SANDBOX";
   String appId = "";
   String merchantId = "PGTESTPAYUAT";
   bool enableLogging = true;

@@ -19,7 +19,11 @@ class StationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Charging Station"),
+<<<<<<< master
+        backgroundColor: const Color.fromARGB(255, 14, 166, 75),
+=======
         backgroundColor: Color.fromARGB(255, 14, 166, 75),
+>>>>>>> master
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +53,11 @@ class StationPage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
+<<<<<<< master
+                MaterialPageRoute(builder: (context) => const BookingPage()),
+=======
                 MaterialPageRoute(builder: (context) => BookingPage()),
+>>>>>>> master
               );
             },
             style: ButtonStyle(
@@ -92,6 +100,8 @@ class StationPage extends StatelessWidget {
     );
   }
 }
+<<<<<<< master
+=======
 
 void main() {
   runApp(
@@ -166,3 +176,4 @@ void main() {
 //     );
 //   }
 // }
+>>>>>>> master

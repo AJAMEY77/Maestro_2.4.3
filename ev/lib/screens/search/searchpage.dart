@@ -1,5 +1,11 @@
 import 'dart:convert';
 
+<<<<<<< master
+import 'package:ev/screens/detalils/details_page.dart';
+import 'package:flutter/material.dart';
+import './stations/stationmodel.dart';
+import 'package:http/http.dart' as http;
+=======
 import 'dart:convert';
 
 import 'package:ev/screens/detalils/details_page.dart';
@@ -8,6 +14,7 @@ import 'package:flutter/material.dart';
 import './stations/stationmodel.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart' as http;
+>>>>>>> master
 // import 'package:xml/xml.dart' as xml;
 
 class SearchPage extends StatefulWidget {
@@ -179,8 +186,13 @@ class _SearchPageState extends State<SearchPage> {
                 updateList(value);
                 fetchChargingStationData("m96ZCU3q8KxAA4DeTJwUyLzFgGkk2ri1");
               },
+<<<<<<< master
+              style: const TextStyle(fontSize: 20),
+              decoration: const InputDecoration(
+=======
               style: TextStyle(fontSize: 20),
               decoration: InputDecoration(
+>>>>>>> master
                   filled: true,
                   fillColor: Color.fromRGBO(59, 96, 70, 0),
                   border: OutlineInputBorder(),
@@ -188,6 +200,80 @@ class _SearchPageState extends State<SearchPage> {
                   suffixIcon: Icon(Icons.search),
                   suffixIconColor: Colors.green),
             ),
+<<<<<<< master
+            const SizedBox(height: 5.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Flexible(
+                  child: FilterChip(
+                    label: const Text("nearest"),
+                    selected: isNearestSelected,
+                    onSelected: (bool value) {
+                      setState(() {
+                        isNearestSelected = value;
+                        if (value) {
+                          displayList.sort((a, b) =>
+                              a.stationDistance.compareTo(b.stationDistance));
+                        } else {
+                          displayList = List.from(chargingStations);
+                        }
+                      });
+                    },
+                  ),
+                ),
+                Flexible(
+                  child: FilterChip(
+                    label: const Text("cheapest"),
+                    selected: isCheapestSelected,
+                    onSelected: (bool value) {
+                      setState(() {
+                        isCheapestSelected = value;
+                        if (value) {
+                          displayList
+                              .sort((a, b) => a.rates.compareTo(b.rates));
+                        } else {
+                          displayList = List.from(chargingStations);
+                        }
+                      });
+                    },
+                  ),
+                ),
+                Flexible(
+                  child: FilterChip(
+                    label: const Text("fast"),
+                    selected: isFastChargingSelected,
+                    onSelected: (bool value) {
+                      setState(() {
+                        isFastChargingSelected = value;
+                        if (value) {
+                          displayList.sort((a, b) =>
+                              a.stationDistance.compareTo(b.stationDistance));
+                        } else {
+                          displayList = List.from(chargingStations);
+                        }
+                      });
+                    },
+                  ),
+                ),
+                Flexible(
+                  child: FilterChip(
+                    label: const Text("ratings"),
+                    selected: isRatingSelected,
+                    onSelected: (bool value) {
+                      setState(() {
+                        isRatingSelected = value;
+                        if (value) {
+                          displayList
+                              .sort((a, b) => a.rates.compareTo(b.rates));
+                        } else {
+                          displayList = List.from(chargingStations);
+                        }
+                      });
+                    },
+                  ),
+                ),
+=======
             const SizedBox(height: 15.0),
             Row(
               children: [
@@ -280,6 +366,7 @@ class _SearchPageState extends State<SearchPage> {
                 // SizedBox(
                 //   width: 20,
                 // ),
+>>>>>>> master
               ],
             ),
             Expanded(
@@ -313,7 +400,11 @@ class _SearchPageState extends State<SearchPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
+<<<<<<< master
+                                  builder: (context) => const StationPage()),
+=======
                                   builder: (context) => StationPage()),
+>>>>>>> master
                             );
                           },
                         ))))
@@ -325,6 +416,15 @@ class _SearchPageState extends State<SearchPage> {
 }
 
 Future<Map<String, dynamic>> fetchChargingStationData(String apiKey) async {
+<<<<<<< master
+  const String baseURL = 'api.tomtom.com';
+  const String versionNumber = '2';
+  const String ext = 'json';
+  const String chargingAvailabilityId = '00112233-4455-6677-8899-aabbccddeeff';
+  const String connectorSet = 'IEC62196Type2CableAttached';
+  const String minPowerKW = '22.2';
+  const String maxPowerKW = '43.2';
+=======
   final String baseURL = 'api.tomtom.com';
   final String versionNumber = '2';
   final String ext = 'json';
@@ -332,6 +432,7 @@ Future<Map<String, dynamic>> fetchChargingStationData(String apiKey) async {
   final String connectorSet = 'IEC62196Type2CableAttached';
   final String minPowerKW = '22.2';
   final String maxPowerKW = '43.2';
+>>>>>>> master
 
   // Constructing the URL for the API request
   final url = Uri.https(

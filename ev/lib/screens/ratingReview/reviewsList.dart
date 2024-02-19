@@ -3,6 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:ev/screens/ratingReview/ratingReview.dart';
 
 class ReviewPage extends StatefulWidget {
+<<<<<<< master
+  List<Review> reviews;
+
+  ReviewPage({Key? key, required this.reviews}) : super(key: key);
+
+  @override
+  _ReviewPageState createState() => _ReviewPageState();
+}
+
+class _ReviewPageState extends State<ReviewPage> {
+  late List<Review> reviews;
+
+=======
   final List<Review> reviews;
 
   const ReviewPage({Key? key, required this.reviews}) : super(key: key);
@@ -14,6 +27,7 @@ class ReviewPage extends StatefulWidget {
 class _ReviewPageState extends State<ReviewPage> {
   late List<Review> reviews;
 
+>>>>>>> master
   @override
   void initState() {
     super.initState();
